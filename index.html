@@ -54,9 +54,18 @@
             color: #fff;
         }
 
+        .proxys-button img,
+        .games-button img,
+        .misc-button img,
+        .settings-button img {
+            width: 20px;
+            height: 20px;
+        }
+
         .proxys-button:hover img,
         .games-button:hover img,
-        .misc-button:hover img {
+        .misc-button:hover img,
+        .settings-button:hover img {
             animation: spinOnce 1s linear 0.5 forwards;
         }
 
@@ -105,6 +114,17 @@
                 padding: 3px 6px;
                 font-size: 9px;
             }
+        }
+
+        .settings-button {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            transition: transform 0.5s;
         }
     </style>
 
@@ -169,7 +189,9 @@
 
     <div class="button-container">
         <div class="proxys-button">
-            <button class="red-button" onclick="toggleDropdown('proxysDropdown')">Proxys</button>
+            <button class="red-button" onclick="toggleDropdown('proxysDropdown')">
+                <img src="https://img.icons8.com/material-outlined/24/000000/settings.png" alt="Proxys">
+            </button>
             <div id="proxysDropdown" class="proxys-dropdown">
                 <button onclick="redirectTo('https://www.blank.com')">Proxys Option 1</button>
                 <button onclick="redirectTo('https://www.blank.com')">Proxys Option 2</button>
@@ -177,7 +199,9 @@
             </div>
         </div>
         <div class="games-button">
-            <button class="red-button" onclick="toggleDropdown('gamesDropdown')">Games</button>
+            <button class="red-button" onclick="toggleDropdown('gamesDropdown')">
+                <img src="https://img.icons8.com/material-outlined/24/000000/settings.png" alt="Games">
+            </button>
             <div id="gamesDropdown" class="games-dropdown">
                 <button onclick="redirectTo('https://www.blank.com')">Games Option 1</button>
                 <button onclick="redirectTo('https://www.blank.com')">Games Option 2</button>
@@ -185,7 +209,9 @@
             </div>
         </div>
         <div class="misc-button">
-            <button class="red-button" onclick="toggleDropdown('miscDropdown')">Misc</button>
+            <button class="red-button" onclick="toggleDropdown('miscDropdown')">
+                <img src="https://img.icons8.com/material-outlined/24/000000/settings.png" alt="Misc">
+            </button>
             <div id="miscDropdown" class="misc-dropdown">
                 <button onclick="redirectTo('https://www.blank.com')">Misc Option 1</button>
                 <button onclick="redirectTo('https://www.blank.com')">Misc Option 2</button>
@@ -193,6 +219,11 @@
             </div>
         </div>
     </div>
+
+    <!-- Settings Button -->
+    <button class="settings-button" onclick="toggleDarkMode()">
+        <img src="https://img.icons8.com/material-outlined/24/000000/settings.png" alt="Settings">
+    </button>
 
     <!-- Acknowledgment -->
     <div class="acknowledgment">Full Redirectool beta</div>
