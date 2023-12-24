@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clever</title>
+    <title>Redirectool</title>
     <style>
         body {
             background-image: url("https://media.istockphoto.com/id/1359090444/photo/milky-way-galaxy-with-stars-and-space-background-universe.webp?b=1&s=170667a&w=0&k=20&c=NalYcXfOAYHcUIxGN9RaGpwad6GD92T9QSnJZKo0ycI=");
@@ -20,19 +20,32 @@
             color: #ff0000;
         }
 
+        .settings-button,
         .proxys-dropdown,
         .games-dropdown,
         .misc-dropdown {
             position: fixed;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            transition: transform 0.5s; /* Add smooth transition for the transform property */
+        }
+
+        .proxys-dropdown,
+        .games-dropdown,
+        .misc-dropdown {
             display: none;
+            position: fixed;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%) scaleY(0);
             background-color: transparent;
             color: #fff;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             z-index: 2;
+            transition: transform 0.5s ease; /* Add transition for the transform property */
         }
 
         .proxys-dropdown button,
@@ -54,17 +67,10 @@
             color: #fff;
         }
 
-        .proxys-button img,
-        .games-button img,
-        .misc-button img {
-            width: 20px;
-            height: 20px;
-        }
-
         .proxys-button:hover img,
         .games-button:hover img,
         .misc-button:hover img {
-            animation: spinOnce 1s linear 0.5 forwards;
+            animation: spinOnce 1s linear 0.5 forwards; /* Spin around half the time on hover */
         }
 
         @keyframes spinOnce {
@@ -113,25 +119,6 @@
                 font-size: 9px;
             }
         }
-
-        .settings-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #808080;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            transition: transform 0.5s;
-            padding: 15px;
-            border-radius: 50%;
-        }
-
-        .settings-button img {
-            width: 30px;
-            height: 30px;
-        }
-
     </style>
 
     <script src="https://cdn.animejs.com/lib/anime.min.js"></script>
@@ -157,6 +144,7 @@
             window.location.href = url;
         }
 
+        // Add event listener for 'Enter' key press
         document.getElementById('urlInput').addEventListener('keydown', function (e) {
             if (e.key === 'Enter') {
                 redirect();
@@ -165,26 +153,24 @@
 
         function toggleDropdown(dropdown) {
             var element = document.getElementById(dropdown);
-            element.style.display = (element.style.display === "block") ? "none" : "block";
+            element.style.transform = (element.style.transform === "translate(-50%, -50%) scaleY(1)") ? "translate(-50%, -50%) scaleY(0)" : "translate(-50%, -50%) scaleY(1)";
         }
 
+        // Close dropdowns when clicking outside of them
         window.onclick = function (event) {
-            var dropdowns = document.querySelectorAll(".dropdown");
-            dropdowns.forEach(function (dropdown) {
-                if (!dropdown.contains(event.target)) {
-                    dropdown.style.display = "none";
+            var dropdowns = document.getElementsByClassName("dropdown");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var dropdown = dropdowns[i];
+                if (event.target != dropdown && !dropdown.contains(event.target)) {
+                    dropdown.style.transform = "translate(-50%, -50%) scaleY(0)";
                 }
-            });
+            }
         };
-
-        function toggleDarkMode() {
-            alert("Dark Mode toggled");
-        }
     </script>
 </head>
 
 <body>
-    <h1>Redirectool</h1>
+    <h1>Beta Redirectool</h1>
 
     <div class="input-container">
         <input type="text" id="urlInput" placeholder="Enter URL">
@@ -194,30 +180,24 @@
     <br><br>
 
     <div class="button-container">
-        <div class="proxys-button">
-            <button class="red-button" onclick="toggleDropdown('proxysDropdown')">
-                <img src="https://img.icons8.com/material-outlined/24/000000/settings.png" alt="Proxys">
-            </button>
+        <div class="dropdown proxys-button">
+            <button class="red-button" onclick="toggleDropdown('proxysDropdown')">Proxys</button>
             <div id="proxysDropdown" class="proxys-dropdown">
                 <button onclick="redirectTo('https://www.blank.com')">Proxys Option 1</button>
                 <button onclick="redirectTo('https://www.blank.com')">Proxys Option 2</button>
                 <button onclick="redirectTo('https://www.blank.com')">Proxys Option 3</button>
             </div>
         </div>
-        <div class="games-button">
-            <button class="red-button" onclick="toggleDropdown('gamesDropdown')">
-                <img src="https://img.icons8.com/material-outlined/24/000000/settings.png" alt="Games">
-            </button>
+        <div class="dropdown games-button">
+            <button class="red-button" onclick="toggleDropdown('gamesDropdown')">Games</button>
             <div id="gamesDropdown" class="games-dropdown">
                 <button onclick="redirectTo('https://www.blank.com')">Games Option 1</button>
                 <button onclick="redirectTo('https://www.blank.com')">Games Option 2</button>
                 <button onclick="redirectTo('https://www.blank.com')">Games Option 3</button>
             </div>
         </div>
-        <div class="misc-button">
-            <button class="red-button" onclick="toggleDropdown('miscDropdown')">
-                <img src="https://img.icons8.com/material-outlined/24/000000/settings.png" alt="Misc">
-            </button>
+        <div class="dropdown misc-button">
+            <button class="red-button" onclick="toggleDropdown('miscDropdown')">Misc</button>
             <div id="miscDropdown" class="misc-dropdown">
                 <button onclick="redirectTo('https://www.blank.com')">Misc Option 1</button>
                 <button onclick="redirectTo('https://www.blank.com')">Misc Option 2</button>
@@ -227,12 +207,17 @@
     </div>
 
     <!-- Settings Button -->
-    <button class="settings-button" onclick="toggleDarkMode()">
+    <button class="settings-button" onclick="toggleDropdown('settingsDropdown')">
         <img src="https://img.icons8.com/material-outlined/24/000000/settings.png" alt="Settings">
     </button>
 
+    <!-- Settings Dropdown -->
+    <div id="settingsDropdown" class="dropdown">
+        <button onclick="redirectTo('https://oldmikers.github.io/redirectool/')">Simple</button>
+    </div>
+
     <!-- Acknowledgment -->
-    <div class="acknowledgment">Full Redirectool beta</div>
+    <div class="acknowledgment">Make sure to check out settings and misc!</div>
 </body>
 
 </html>
