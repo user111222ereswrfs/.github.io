@@ -20,23 +20,11 @@
             color: #ff0000;
         }
 
-        .settings-button,
         .proxys-dropdown,
         .games-dropdown,
         .misc-dropdown {
             position: fixed;
-            background: none;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            transition: transform 0.5s;
-        }
-
-        .proxys-dropdown,
-        .games-dropdown,
-        .misc-dropdown {
             display: none;
-            position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -155,13 +143,12 @@
         }
 
         window.onclick = function (event) {
-            var dropdowns = document.getElementsByClassName("dropdown");
-            for (var i = 0; i < dropdowns.length; i++) {
-                var dropdown = dropdowns[i];
-                if (event.target != dropdown && !dropdown.contains(event.target)) {
+            var dropdowns = document.querySelectorAll(".dropdown");
+            dropdowns.forEach(function (dropdown) {
+                if (!dropdown.contains(event.target)) {
                     dropdown.style.display = "none";
                 }
-            }
+            });
         };
 
         function toggleDarkMode() {
@@ -181,7 +168,7 @@
     <br><br>
 
     <div class="button-container">
-        <div class="dropdown proxys-button">
+        <div class="proxys-button">
             <button class="red-button" onclick="toggleDropdown('proxysDropdown')">Proxys</button>
             <div id="proxysDropdown" class="proxys-dropdown">
                 <button onclick="redirectTo('https://www.blank.com')">Proxys Option 1</button>
@@ -189,7 +176,7 @@
                 <button onclick="redirectTo('https://www.blank.com')">Proxys Option 3</button>
             </div>
         </div>
-        <div class="dropdown games-button">
+        <div class="games-button">
             <button class="red-button" onclick="toggleDropdown('gamesDropdown')">Games</button>
             <div id="gamesDropdown" class="games-dropdown">
                 <button onclick="redirectTo('https://www.blank.com')">Games Option 1</button>
@@ -197,7 +184,7 @@
                 <button onclick="redirectTo('https://www.blank.com')">Games Option 3</button>
             </div>
         </div>
-        <div class="dropdown misc-button">
+        <div class="misc-button">
             <button class="red-button" onclick="toggleDropdown('miscDropdown')">Misc</button>
             <div id="miscDropdown" class="misc-dropdown">
                 <button onclick="redirectTo('https://www.blank.com')">Misc Option 1</button>
@@ -205,17 +192,6 @@
                 <button onclick="redirectTo('https://www.blank.com')">Misc Option 3</button>
             </div>
         </div>
-    </div>
-
-    <!-- Settings Button -->
-    <button class="settings-button" onclick="toggleDropdown('settingsDropdown')">
-        <img src="https://img.icons8.com/material-outlined/24/000000/settings.png" alt="Settings">
-    </button>
-
-    <!-- Settings Dropdown -->
-    <div id="settingsDropdown" class="settings-dropdown">
-        <button onclick="toggleDarkMode()">Dark Mode</button>
-        <button onclick="redirectTo('https://oldmikers.github.io/redirectool/')">Simple</button>
     </div>
 
     <!-- Acknowledgment -->
