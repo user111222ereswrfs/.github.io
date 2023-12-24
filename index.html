@@ -56,16 +56,14 @@
 
         .proxys-button img,
         .games-button img,
-        .misc-button img,
-        .settings-button img {
+        .misc-button img {
             width: 20px;
             height: 20px;
         }
 
         .proxys-button:hover img,
         .games-button:hover img,
-        .misc-button:hover img,
-        .settings-button:hover img {
+        .misc-button:hover img {
             animation: spinOnce 1s linear 0.5 forwards;
         }
 
@@ -118,14 +116,22 @@
 
         .settings-button {
             position: fixed;
-            bottom: 10px;
-            right: 10px;
-            background: none;
+            bottom: 20px;
+            right: 20px;
+            background: #808080;
             border: none;
             outline: none;
             cursor: pointer;
             transition: transform 0.5s;
+            padding: 15px;
+            border-radius: 50%;
         }
+
+        .settings-button img {
+            width: 30px;
+            height: 30px;
+        }
+
     </style>
 
     <script src="https://cdn.animejs.com/lib/anime.min.js"></script>
