@@ -55,6 +55,18 @@
             <img src="https://img.icons8.com/material-outlined/24/000000/settings.png" alt="Settings">
         </button>
 
+        <!-- Credits Button -->
+        <div class="credits-button" onclick="toggleDropdown('creditsDropdown')">
+            <img src="https://img.icons8.com/material-outlined/24/000000/award.png" alt="Credits">
+            <div id="creditsDropdown" class="credits-dropdown">
+                <button onclick="redirectTo('https://www.blank.com')">Links</button>
+                <div class="nested-dropdown">
+                    <button onclick="alert('Kahaan')">Kahaan</button>
+                    <button onclick="alert('Emil')">Emil</button>
+                </div>
+            </div>
+        </div>
+
         <!-- Acknowledgment -->
         <div class="acknowledgment">Full Redirectool beta</div>
     </div>
@@ -94,7 +106,9 @@
             /* Include your existing styles here */
             .proxys-dropdown,
             .games-dropdown,
-            .misc-dropdown {
+            .misc-dropdown,
+            .credits-dropdown,
+            .nested-dropdown {
                 display: none;
                 background-color: transparent;
                 color: #fff;
@@ -107,7 +121,9 @@
 
             .proxys-dropdown button,
             .games-dropdown button,
-            .misc-dropdown button {
+            .misc-dropdown button,
+            .credits-dropdown button,
+            .nested-dropdown button {
                 background-color: transparent;
                 color: #fff;
                 border: none;
@@ -120,7 +136,9 @@
 
             .proxys-dropdown button:hover,
             .games-dropdown button:hover,
-            .misc-dropdown button:hover {
+            .misc-dropdown button:hover,
+            .credits-dropdown button:hover,
+            .nested-dropdown button:hover {
                 background-color: rgba(255, 255, 255, 0.1);
                 color: #fff;
             }
@@ -173,7 +191,8 @@
             .settings-button,
             .proxys-button,
             .games-button,
-            .misc-button {
+            .misc-button,
+            .credits-button {
                 background: none;
                 border: none;
                 outline: none;
@@ -190,7 +209,8 @@
             .settings-button img,
             .proxys-button img,
             .games-button img,
-            .misc-button img {
+            .misc-button img,
+            .credits-button img {
                 width: 30px;
                 height: 30px;
             }
@@ -203,11 +223,26 @@
                 background-color: #2ecc71;
             }
 
+            .credits-button {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+            }
+
             .proxys-button:hover .proxys-dropdown,
             .games-button:hover .games-dropdown,
-            .misc-button:hover .misc-dropdown {
+            .misc-button:hover .misc-dropdown,
+            .credits-button:hover .credits-dropdown {
                 display: block;
                 animation-name: fadeInDown;
+            }
+
+            .nested-dropdown {
+                margin-top: 10px;
+            }
+
+            .nested-dropdown button {
+                margin: 5px 0;
             }
         `;
 
