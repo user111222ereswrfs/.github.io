@@ -8,51 +8,57 @@
 </head>
 
 <body>
-    <h1>Redirectool</h1>
+    <div class="container">
+        <h1>Redirectool</h1>
 
-    <div class="button-container">
-        <!-- Proxys Button -->
-        <div class="proxys-button" onclick="toggleDropdown('proxysDropdown')">
-            <img src="https://img.icons8.com/material-outlined/24/000000/link.png" alt="Proxys">
-            <div id="proxysDropdown" class="proxys-dropdown">
-                <button onclick="redirectTo('https://www.blank.com')">Proxys Option 1</button>
-                <button onclick="redirectTo('https://www.blank.com')">Proxys Option 2</button>
-                <button onclick="redirectTo('https://www.blank.com')">Proxys Option 3</button>
+        <div class="button-container">
+            <!-- Proxys Button -->
+            <div class="proxys-button" onclick="toggleDropdown('proxysDropdown')">
+                <img src="https://img.icons8.com/material-outlined/24/000000/link.png" alt="Proxys">
+                <div id="proxysDropdown" class="proxys-dropdown">
+                    <button onclick="redirectTo('https://www.blank.com')">Proxys Option 1</button>
+                    <button onclick="redirectTo('https://www.blank.com')">Proxys Option 2</button>
+                    <button onclick="redirectTo('https://www.blank.com')">Proxys Option 3</button>
+                </div>
+            </div>
+
+            <!-- Games Button -->
+            <div class="games-button" onclick="toggleDropdown('gamesDropdown')">
+                <img src="https://img.icons8.com/material-outlined/24/000000/controller.png" alt="Games">
+                <div id="gamesDropdown" class="games-dropdown">
+                    <button onclick="redirectTo('https://www.blank.com')">Games Option 1</button>
+                    <button onclick="redirectTo('https://www.blank.com')">Games Option 2</button>
+                    <button onclick="redirectTo('https://www.blank.com')">Games Option 3</button>
+                </div>
+            </div>
+
+            <!-- Misc Button -->
+            <div class="misc-button" onclick="toggleDropdown('miscDropdown')">
+                <img src="https://img.icons8.com/material-outlined/24/000000/more.png" alt="Misc">
+                <div id="miscDropdown" class="misc-dropdown">
+                    <button onclick="redirectTo('https://www.blank.com')">Misc Option 1</button>
+                    <button onclick="redirectTo('https://www.blank.com')">Misc Option 2</button>
+                    <button onclick="redirectTo('https://www.blank.com')">Misc Option 3</button>
+                </div>
             </div>
         </div>
 
-        <!-- Games Button -->
-        <div class="games-button" onclick="toggleDropdown('gamesDropdown')">
-            <img src="https://img.icons8.com/material-outlined/24/000000/controller.png" alt="Games">
-            <div id="gamesDropdown" class="games-dropdown">
-                <button onclick="redirectTo('https://www.blank.com')">Games Option 1</button>
-                <button onclick="redirectTo('https://www.blank.com')">Games Option 2</button>
-                <button onclick="redirectTo('https://www.blank.com')">Games Option 3</button>
-            </div>
-        </div>
+        <!-- Settings Button -->
+        <button class="settings-button" onclick="toggleDarkMode()">
+            <img src="https://img.icons8.com/material-outlined/24/000000/settings.png" alt="Settings">
+        </button>
 
-        <!-- Misc Button -->
-        <div class="misc-button" onclick="toggleDropdown('miscDropdown')">
-            <img src="https://img.icons8.com/material-outlined/24/000000/more.png" alt="Misc">
-            <div id="miscDropdown" class="misc-dropdown">
-                <button onclick="redirectTo('https://www.blank.com')">Misc Option 1</button>
-                <button onclick="redirectTo('https://www.blank.com')">Misc Option 2</button>
-                <button onclick="redirectTo('https://www.blank.com')">Misc Option 3</button>
-            </div>
-        </div>
+        <!-- Acknowledgment -->
+        <div class="acknowledgment">Full Redirectool beta</div>
     </div>
-
-    <!-- Settings Button -->
-    <button class="settings-button" onclick="toggleDarkMode()">
-        <img src="https://img.icons8.com/material-outlined/24/000000/settings.png" alt="Settings">
-    </button>
-
-    <!-- Acknowledgment -->
-    <div class="acknowledgment">Full Redirectool beta</div>
 
     <script>
         var style = `
             /* Your existing styles go here */
+            .container {
+                text-align: center;
+            }
+
             body {
                 background-image: url("https://media.istockphoto.com/id/1359090444/photo/milky-way-galaxy-with-stars-and-space-background-universe.webp?b=1&s=170667a&w=0&k=20&c=NalYcXfOAYHcUIxGN9RaGpwad6GD92T9QSnJZKo0ycI=");
                 background-size: cover;
@@ -65,7 +71,6 @@
 
             h1 {
                 color: #ff0000;
-                text-align: center;
             }
 
             .button-container {
@@ -78,7 +83,7 @@
             .proxys-dropdown,
             .games-dropdown,
             .misc-dropdown {
-                display: block; /* Set initial display to block */
+                display: none;
                 background-color: transparent;
                 color: #fff;
                 padding: 20px;
