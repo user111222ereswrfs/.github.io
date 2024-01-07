@@ -154,18 +154,6 @@
             background-color: #2ecc71;
         }
 
-        .settings-button,
-        .credits-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-        }
-
-        .credits-button {
-            display: none;
-        }
-
-        .settings-button:hover,
         .proxys-button:hover .proxys-dropdown,
         .games-button:hover .games-dropdown,
         .misc-button:hover .misc-dropdown,
@@ -193,44 +181,6 @@
             }
         }
     </style>
-    <script>
-        function redirect() {
-            var urlInputValue = document.getElementById('urlInput').value;
-            if (urlInputValue.trim() === '') {
-                alert('Please enter a valid URL.');
-            } else {
-                window.location.href = urlInputValue;
-            }
-        }
-
-        function redirectTo(url) {
-            window.location.href = url;
-        }
-
-        document.getElementById('urlInput').addEventListener('keydown', function (e) {
-            if (e.key === 'Enter') {
-                redirect();
-            }
-        });
-
-        function toggleDarkMode() {
-            alert("Dark Mode toggled");
-        }
-
-        function toggleDropdown(dropdown) {
-            var element = document.getElementById(dropdown);
-            element.style.display = (element.style.display === "block") ? "none" : "block";
-        }
-
-        window.onclick = function (event) {
-            var dropdowns = document.querySelectorAll(".dropdown");
-            dropdowns.forEach(function (dropdown) {
-                if (!dropdown.contains(event.target)) {
-                    dropdown.style.display = "none";
-                }
-            });
-        };
-    </script>
 </head>
 
 <body>
@@ -248,21 +198,45 @@
                 </div>
             </div>
 
-            <!-- URL Input and Redirect Button -->
-            <div class="input-container">
-                <input type="text" id="urlInput" placeholder="Enter URL">
-                <button class="red-button" onclick="redirect()">Go</button>
+            <!-- Games Button -->
+            <div class="games-button" onclick="toggleDropdown('gamesDropdown')">
+                <img src="https://img.icons8.com/fluent/48/000000/controller.png" alt="Games">
+                <div id="gamesDropdown" class="games-dropdown">
+                    <button onclick="redirectTo('https://www.blank.com')">Games Option 1</button>
+                    <button onclick="redirectTo('https://www.blank.com')">Games Option 2</button>
+                    <button onclick="redirectTo('https://www.blank.com')">Games Option 3</button>
+                </div>
             </div>
 
-            <!-- Settings Button -->
-            <button class="settings-button" onclick="toggleDarkMode()">
-                <img src="https://img.icons8.com/material-outlined/24/000000/settings.png" alt="Settings">
-            </button>
+            <!-- Misc Button -->
+            <div class="misc-button" onclick="toggleDropdown('miscDropdown')">
+                <img src="https://img.icons8.com/fluent/48/000000/more.png" alt="Misc">
+                <div id="miscDropdown" class="misc-dropdown">
+                    <button onclick="redirectTo('https://www.blank.com')">Misc Option 1</button>
+                    <button onclick="redirectTo('https://www.blank.com')">Misc Option 2</button>
+                    <button onclick="redirectTo('https://www.blank.com')">Misc Option 3</button>
+                </div>
+            </div>
         </div>
+
+        <!-- URL Input and Redirect Button -->
+        <div class="input-container">
+            <input type="text" id="urlInput" placeholder="Enter URL">
+            <button class="red-button" onclick="redirect()">Go</button>
+        </div>
+
+        <!-- Settings Button -->
+        <button class="settings-button" onclick="toggleDarkMode()">
+            <img src="https://img.icons8.com/material-outlined/24/000000/settings.png" alt="Settings">
+        </button>
 
         <!-- Acknowledgment -->
         <div class="acknowledgment">Full Redirectool beta</div>
     </div>
+
+    <script>
+        // Your existing script goes here
+    </script>
 </body>
 
 </html>
