@@ -250,7 +250,13 @@
     </div>
 
     <script>
-        // Your existing script goes here
+        function redirectTo(url) {
+            if (url.toLowerCase().startsWith('http://')) {
+                // If the URL is HTTP, change it to HTTPS
+                url = 'https://' + url.substring(7);
+            }
+            window.location.href = url;
+        }
     </script>
 </body>
 
