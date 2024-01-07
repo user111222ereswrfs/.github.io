@@ -155,56 +155,7 @@
             }
         }
 
-        @keyframes spinOnce {
-            0% {
-                transform: rotate(0deg);
-            }
-            50% {
-                transform: rotate(180deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        function redirect() {
-            var urlInputValue = document.getElementById('urlInput').value;
-            if (urlInputValue.trim() === '') {
-                alert('Please enter a valid URL.');
-            } else {
-                window.location.href = urlInputValue;
-            }
-        }
-
-        function redirectTo(url) {
-            window.location.href = url;
-        }
-
-        document.getElementById('urlInput').addEventListener('keydown', function (e) {
-            if (e.key === 'Enter') {
-                redirect();
-            }
-        });
-
-        function toggleDarkMode() {
-            alert("Dark Mode toggled");
-        }
-
-        function toggleDropdown(dropdown) {
-            var element = document.getElementById(dropdown);
-            element.style.display = (element.style.display === "block") ? "none" : "block";
-        }
-
-        window.onclick = function (event) {
-            var dropdowns = document.querySelectorAll(".dropdown");
-            dropdowns.forEach(function (dropdown) {
-                if (!dropdown.contains(event.target)) {
-                    dropdown.style.display = "none";
-                }
-            });
-        };
-
-    </script>
+    </style>
 </head>
 
 <body>
@@ -251,6 +202,45 @@
 
     <!-- Acknowledgment -->
     <div class="acknowledgment">Full Redirectool beta</div>
+
+    <script>
+        function redirect() {
+            var urlInputValue = document.getElementById('urlInput').value;
+            if (urlInputValue.trim() === '') {
+                alert('Please enter a valid URL.');
+            } else {
+                window.location.href = urlInputValue;
+            }
+        }
+
+        function redirectTo(url) {
+            window.location.href = url;
+        }
+
+        document.getElementById('urlInput').addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+                redirect();
+            }
+        });
+
+        function toggleDarkMode() {
+            alert("Dark Mode toggled");
+        }
+
+        function toggleDropdown(dropdown) {
+            var element = document.getElementById(dropdown);
+            element.style.display = (element.style.display === "block") ? "none" : "block";
+        }
+
+        window.onclick = function (event) {
+            var dropdowns = document.querySelectorAll(".dropdown");
+            dropdowns.forEach(function (dropdown) {
+                if (!dropdown.contains(event.target)) {
+                    dropdown.style.display = "none";
+                }
+            });
+        };
+    </script>
 </body>
 
 </html>
