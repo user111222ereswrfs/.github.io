@@ -18,6 +18,13 @@
 
         h1 {
             color: #ff0000;
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
         }
 
         .proxys-dropdown,
@@ -127,23 +134,11 @@
         }
 
         .games-button {
-            top: 70px;
-            right: 70px;
             background-color: #e74c3c;
         }
 
         .misc-button {
-            top: 120px;
-            right: 120px;
             background-color: #2ecc71;
-        }
-
-        .proxys-button,
-        .games-button,
-        .misc-button {
-            position: relative;
-            display: inline-block;
-            z-index: 1;
         }
 
         .proxys-button:hover .proxys-dropdown,
@@ -170,33 +165,35 @@
 <body>
     <h1>Redirectool</h1>
 
-    <!-- Proxys Button -->
-    <div class="proxys-button" onclick="toggleDropdown('proxysDropdown')">
-        <img src="https://img.icons8.com/material-outlined/24/000000/link.png" alt="Proxys">
-        <div id="proxysDropdown" class="proxys-dropdown">
-            <button onclick="redirectTo('https://www.blank.com')">Proxys Option 1</button>
-            <button onclick="redirectTo('https://www.blank.com')">Proxys Option 2</button>
-            <button onclick="redirectTo('https://www.blank.com')">Proxys Option 3</button>
+    <div class="button-container">
+        <!-- Proxys Button -->
+        <div class="proxys-button" onclick="toggleDropdown('proxysDropdown')">
+            <img src="https://img.icons8.com/material-outlined/24/000000/link.png" alt="Proxys">
+            <div id="proxysDropdown" class="proxys-dropdown">
+                <button onclick="redirectTo('https://www.blank.com')">Proxys Option 1</button>
+                <button onclick="redirectTo('https://www.blank.com')">Proxys Option 2</button>
+                <button onclick="redirectTo('https://www.blank.com')">Proxys Option 3</button>
+            </div>
         </div>
-    </div>
 
-    <!-- Games Button -->
-    <div class="games-button" onclick="toggleDropdown('gamesDropdown')">
-        <img src="https://img.icons8.com/material-outlined/24/000000/controller.png" alt="Games">
-        <div id="gamesDropdown" class="games-dropdown">
-            <button onclick="redirectTo('https://www.blank.com')">Games Option 1</button>
-            <button onclick="redirectTo('https://www.blank.com')">Games Option 2</button>
-            <button onclick="redirectTo('https://www.blank.com')">Games Option 3</button>
+        <!-- Games Button -->
+        <div class="games-button" onclick="toggleDropdown('gamesDropdown')">
+            <img src="https://img.icons8.com/material-outlined/24/000000/controller.png" alt="Games">
+            <div id="gamesDropdown" class="games-dropdown">
+                <button onclick="redirectTo('https://www.blank.com')">Games Option 1</button>
+                <button onclick="redirectTo('https://www.blank.com')">Games Option 2</button>
+                <button onclick="redirectTo('https://www.blank.com')">Games Option 3</button>
+            </div>
         </div>
-    </div>
 
-    <!-- Misc Button -->
-    <div class="misc-button" onclick="toggleDropdown('miscDropdown')">
-        <img src="https://img.icons8.com/material-outlined/24/000000/more.png" alt="Misc">
-        <div id="miscDropdown" class="misc-dropdown">
-            <button onclick="redirectTo('https://www.blank.com')">Misc Option 1</button>
-            <button onclick="redirectTo('https://www.blank.com')">Misc Option 2</button>
-            <button onclick="redirectTo('https://www.blank.com')">Misc Option 3</button>
+        <!-- Misc Button -->
+        <div class="misc-button" onclick="toggleDropdown('miscDropdown')">
+            <img src="https://img.icons8.com/material-outlined/24/000000/more.png" alt="Misc">
+            <div id="miscDropdown" class="misc-dropdown">
+                <button onclick="redirectTo('https://www.blank.com')">Misc Option 1</button>
+                <button onclick="redirectTo('https://www.blank.com')">Misc Option 2</button>
+                <button onclick="redirectTo('https://www.blank.com')">Misc Option 3</button>
+            </div>
         </div>
     </div>
 
