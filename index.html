@@ -5,9 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clever</title>
-    <style>
-        /* Your existing styles remain unchanged */
-    </style>
 </head>
 
 <body>
@@ -54,7 +51,193 @@
     <div class="acknowledgment">Full Redirectool beta</div>
 
     <script>
-        // Your existing JavaScript code remains unchanged
+        var style = `
+            /* Your existing styles go here */
+            body {
+                background-image: url("https://media.istockphoto.com/id/1359090444/photo/milky-way-galaxy-with-stars-and-space-background-universe.webp?b=1&s=170667a&w=0&k=20&c=NalYcXfOAYHcUIxGN9RaGpwad6GD92T9QSnJZKo0ycI=");
+                background-size: cover;
+                background-position: center;
+                color: rgba(255, 255, 255, 0.9);
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+                font-family: 'Arial', sans-serif;
+                overflow: hidden;
+            }
+
+            h1 {
+                color: #ff0000;
+                text-align: center;
+            }
+
+            .button-container {
+                display: flex;
+                justify-content: space-around;
+                margin-top: 20px;
+            }
+
+            /* Include your existing styles here */
+            .proxys-dropdown,
+            .games-dropdown,
+            .misc-dropdown {
+                display: none;
+                background-color: transparent;
+                color: #fff;
+                padding: 20px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                z-index: 2;
+                position: absolute;
+                animation-duration: 0.5s;
+            }
+
+            .proxys-dropdown button,
+            .games-dropdown button,
+            .misc-dropdown button {
+                background-color: transparent;
+                color: #fff;
+                border: none;
+                padding: 10px;
+                margin: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease, color 0.3s ease;
+                border-radius: 5px;
+            }
+
+            .proxys-dropdown button:hover,
+            .games-dropdown button:hover,
+            .misc-dropdown button:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                color: #fff;
+            }
+
+            .red-button {
+                background-color: rgba(255, 0, 0, 0.5);
+                border: 2px solid #d00000;
+                color: white;
+                padding: 4px 8px;
+                font-size: 10px;
+                cursor: pointer;
+                transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+                position: relative;
+                z-index: 3;
+                border-radius: 5px;
+            }
+
+            .red-button:hover {
+                background-color: rgba(208, 0, 0, 0.7);
+                border-color: #a00000;
+                color: #ffffff;
+            }
+
+            .img-responsive {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+
+            .input-container {
+                margin-bottom: 20px;
+            }
+
+            .acknowledgment {
+                position: fixed;
+                bottom: 10px;
+                left: 10px;
+                color: #ffffff;
+                font-size: 12px;
+                z-index: 4;
+            }
+
+            @media (max-width: 768px) {
+                .red-button {
+                    padding: 3px 6px;
+                    font-size: 9px;
+                }
+            }
+
+            .settings-button,
+            .proxys-button,
+            .games-button,
+            .misc-button {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: none;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                transition: transform 0.5s;
+                padding: 15px;
+                border-radius: 5px;
+                z-index: 4;
+                background-color: #3498db;
+                color: #fff;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            }
+
+            .settings-button img,
+            .proxys-button img,
+            .games-button img,
+            .misc-button img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .games-button {
+                background-color: #e74c3c;
+            }
+
+            .misc-button {
+                background-color: #2ecc71;
+            }
+
+            .proxys-button:hover .proxys-dropdown,
+            .games-button:hover .games-dropdown,
+            .misc-button:hover .misc-dropdown {
+                display: block;
+                animation-name: fadeInDown;
+            }
+        `;
+
+        var styleElement = document.createElement("style");
+        styleElement.type = "text/css";
+        styleElement.appendChild(document.createTextNode(style));
+        document.head.appendChild(styleElement);
+
+        function redirect() {
+            var urlInputValue = document.getElementById('urlInput').value;
+            if (urlInputValue.trim() === '') {
+                alert('Please enter a valid URL.');
+            } else {
+                window.location.href = urlInputValue;
+            }
+        }
+
+        function redirectTo(url) {
+            window.location.href = url;
+        }
+
+        document.getElementById('urlInput').addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+                redirect();
+            }
+        });
+
+        function toggleDarkMode() {
+            alert("Dark Mode toggled");
+        }
+
+        function toggleDropdown(dropdown) {
+            var element = document.getElementById(dropdown);
+            element.style.display = (element.style.display === "block") ? "none" : "block";
+        }
+
+        window.onclick = function (event) {
+            var dropdowns = document.querySelectorAll(".dropdown");
+            dropdowns.forEach(function (dropdown) {
+                if (!dropdown.contains(event.target)) {
+                    dropdown.style.display = "none";
+                }
+            });
+        };
     </script>
 </body>
 
