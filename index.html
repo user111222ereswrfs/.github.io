@@ -154,20 +154,18 @@
             background-color: #2ecc71;
         }
 
+        .settings-button,
         .credits-button {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
         }
 
-        .credits-button:hover .credits-dropdown {
-            display: block;
-            animation-name: fadeInUp;
+        .credits-button {
+            display: none;
         }
 
+        .settings-button:hover,
         .proxys-button:hover .proxys-dropdown,
         .games-button:hover .games-dropdown,
         .misc-button:hover .misc-dropdown,
@@ -182,17 +180,6 @@
 
         .nested-dropdown button {
             margin: 5px 0;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         @keyframes fadeInDown {
@@ -271,11 +258,6 @@
             <button class="settings-button" onclick="toggleDarkMode()">
                 <img src="https://img.icons8.com/material-outlined/24/000000/settings.png" alt="Settings">
             </button>
-
-            <!-- Credits Button -->
-            <a class="credits-button" href="https://www.blank.com">
-                <img src="https://img.icons8.com/material-outlined/24/000000/award.png" alt="Credits">
-            </a>
         </div>
 
         <!-- Acknowledgment -->
