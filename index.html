@@ -58,7 +58,7 @@
         <!-- Credits Button -->
         <div class="credits-button" onclick="toggleDropdown('creditsDropdown')">
             <img src="https://img.icons8.com/material-outlined/24/000000/award.png" alt="Credits">
-            <div id="creditsDropdown" class="credits-dropdown">
+            <div id="creditsDropdown" class="credits-dropdown nested-dropdown">
                 <button onclick="redirectTo('https://www.blank.com')">Links</button>
                 <div class="nested-dropdown">
                     <button onclick="alert('Kahaan')">Kahaan</button>
@@ -246,7 +246,7 @@
             }
 
             .nested-dropdown {
-                margin-top: 10px;
+                margin-top: -50px; /* Adjust this value to move the dropdown higher or lower */
             }
 
             .nested-dropdown button {
@@ -274,50 +274,7 @@
                     transform: translateY(0);
                 }
             }
-        `;
+        </script>
+    </body>
 
-        var styleElement = document.createElement("style");
-        styleElement.type = "text/css";
-        styleElement.appendChild(document.createTextNode(style));
-        document.head.appendChild(styleElement);
-
-        function redirect() {
-            var urlInputValue = document.getElementById('urlInput').value;
-            if (urlInputValue.trim() === '') {
-                alert('Please enter a valid URL.');
-            } else {
-                window.location.href = urlInputValue;
-            }
-        }
-
-        function redirectTo(url) {
-            window.location.href = url;
-        }
-
-        document.getElementById('urlInput').addEventListener('keydown', function (e) {
-            if (e.key === 'Enter') {
-                redirect();
-            }
-        });
-
-        function toggleDarkMode() {
-            alert("Dark Mode toggled");
-        }
-
-        function toggleDropdown(dropdown) {
-            var element = document.getElementById(dropdown);
-            element.style.display = (element.style.display === "block") ? "none" : "block";
-        }
-
-        window.onclick = function (event) {
-            var dropdowns = document.querySelectorAll(".dropdown");
-            dropdowns.forEach(function (dropdown) {
-                if (!dropdown.contains(event.target)) {
-                    dropdown.style.display = "none";
-                }
-            });
-        };
-    </script>
-</body>
-
-</html>
+    </html>
