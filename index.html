@@ -43,6 +43,7 @@
             margin: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 5px;
         }
 
         .proxys-dropdown button:hover,
@@ -62,6 +63,7 @@
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
             position: relative;
             z-index: 3;
+            border-radius: 5px;
         }
 
         .red-button:hover {
@@ -96,7 +98,10 @@
             }
         }
 
-        .settings-button {
+        .settings-button,
+        .proxys-button,
+        .games-button,
+        .misc-button {
             position: fixed;
             bottom: 20px;
             right: 20px;
@@ -106,27 +111,31 @@
             cursor: pointer;
             transition: transform 0.5s;
             padding: 15px;
-            border-radius: 50%;
+            border-radius: 5px;
             z-index: 4;
+            background-color: #3498db;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
 
-        .settings-button img {
+        .settings-button img,
+        .proxys-button img,
+        .games-button img,
+        .misc-button img {
             width: 30px;
             height: 30px;
         }
 
         .games-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 3;
+            top: 70px;
+            right: 70px;
+            background-color: #e74c3c;
         }
 
         .misc-button {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 3;
+            top: 120px;
+            right: 120px;
+            background-color: #2ecc71;
         }
 
         .proxys-button,
@@ -161,37 +170,33 @@
 <body>
     <h1>Redirectool</h1>
 
-    <div class="input-container">
-        <input type="text" id="urlInput" placeholder="Enter URL">
-        <button class="red-button" onclick="redirect()">Go</button>
+    <!-- Proxys Button -->
+    <div class="proxys-button" onclick="toggleDropdown('proxysDropdown')">
+        <img src="https://img.icons8.com/material-outlined/24/000000/link.png" alt="Proxys">
+        <div id="proxysDropdown" class="proxys-dropdown">
+            <button onclick="redirectTo('https://www.blank.com')">Proxys Option 1</button>
+            <button onclick="redirectTo('https://www.blank.com')">Proxys Option 2</button>
+            <button onclick="redirectTo('https://www.blank.com')">Proxys Option 3</button>
+        </div>
     </div>
 
-    <br><br>
+    <!-- Games Button -->
+    <div class="games-button" onclick="toggleDropdown('gamesDropdown')">
+        <img src="https://img.icons8.com/material-outlined/24/000000/controller.png" alt="Games">
+        <div id="gamesDropdown" class="games-dropdown">
+            <button onclick="redirectTo('https://www.blank.com')">Games Option 1</button>
+            <button onclick="redirectTo('https://www.blank.com')">Games Option 2</button>
+            <button onclick="redirectTo('https://www.blank.com')">Games Option 3</button>
+        </div>
+    </div>
 
-    <div class="button-container">
-        <div class="proxys-button">
-            <button class="red-button" onclick="toggleDropdown('proxysDropdown')"></button>
-            <div id="proxysDropdown" class="proxys-dropdown">
-                <button onclick="redirectTo('https://www.blank.com')">Proxys Option 1</button>
-                <button onclick="redirectTo('https://www.blank.com')">Proxys Option 2</button>
-                <button onclick="redirectTo('https://www.blank.com')">Proxys Option 3</button>
-            </div>
-        </div>
-        <div class="games-button">
-            <button class="red-button" onclick="toggleDropdown('gamesDropdown')"></button>
-            <div id="gamesDropdown" class="games-dropdown">
-                <button onclick="redirectTo('https://www.blank.com')">Games Option 1</button>
-                <button onclick="redirectTo('https://www.blank.com')">Games Option 2</button>
-                <button onclick="redirectTo('https://www.blank.com')">Games Option 3</button>
-            </div>
-        </div>
-        <div class="misc-button">
-            <button class="red-button" onclick="toggleDropdown('miscDropdown')"></button>
-            <div id="miscDropdown" class="misc-dropdown">
-                <button onclick="redirectTo('https://www.blank.com')">Misc Option 1</button>
-                <button onclick="redirectTo('https://www.blank.com')">Misc Option 2</button>
-                <button onclick="redirectTo('https://www.blank.com')">Misc Option 3</button>
-            </div>
+    <!-- Misc Button -->
+    <div class="misc-button" onclick="toggleDropdown('miscDropdown')">
+        <img src="https://img.icons8.com/material-outlined/24/000000/more.png" alt="Misc">
+        <div id="miscDropdown" class="misc-dropdown">
+            <button onclick="redirectTo('https://www.blank.com')">Misc Option 1</button>
+            <button onclick="redirectTo('https://www.blank.com')">Misc Option 2</button>
+            <button onclick="redirectTo('https://www.blank.com')">Misc Option 3</button>
         </div>
     </div>
 
