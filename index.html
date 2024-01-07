@@ -154,17 +154,18 @@
             background-color: #2ecc71;
         }
 
-        .proxys-button {
-            background-color: #f39c12; /* Yellow */
+        .credits-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
+            align-items: flex-end;
         }
 
-        .database-icon {
-            width: 24px;
-            height: 24px;
-            margin-right: 5px;
+        .credits-button:hover .credits-dropdown {
+            display: block;
+            animation-name: fadeInUp;
         }
 
         .proxys-button:hover .proxys-dropdown,
@@ -173,6 +174,14 @@
         .credits-button:hover .credits-dropdown {
             display: block;
             animation-name: fadeInDown;
+        }
+
+        .nested-dropdown {
+            margin-top: -50px; /* Adjust this value to move the dropdown higher or lower */
+        }
+
+        .nested-dropdown button {
+            margin: 5px 0;
         }
 
         @keyframes fadeInUp {
@@ -244,7 +253,7 @@
         <div class="button-container">
             <!-- Proxys Button -->
             <div class="proxys-button" onclick="toggleDropdown('proxysDropdown')">
-                <img class="database-icon" src="https://img.icons8.com/fluent/48/000000/database.png" alt="Proxys">
+                <img src="https://img.icons8.com/fluent/48/000000/database.png" alt="Proxys">
                 <div id="proxysDropdown" class="proxys-dropdown">
                     <button onclick="redirectTo('https://www.blank.com')">Proxys Option 1</button>
                     <button onclick="redirectTo('https://www.blank.com')">Proxys Option 2</button>
