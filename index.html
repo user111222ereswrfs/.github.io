@@ -143,7 +143,7 @@
             background-color: #2ecc71;
         }
 
-        .dropdown:hover {
+        .button-container div:hover .dropdown {
             display: block;
             animation-name: fadeInDown;
         }
@@ -182,7 +182,7 @@
 
         <div class="button-container">
             <!-- Proxys Button -->
-            <div class="proxys-button" onclick="toggleDropdown('proxysDropdown')">
+            <div class="proxys-button" onmouseover="toggleDropdown('proxysDropdown')" onmouseout="toggleDropdown('proxysDropdown')">
                 <img src="https://img.icons8.com/fluent/48/000000/database.png" alt="Proxys">
                 <div id="proxysDropdown" class="dropdown">
                     <button onclick="redirectTo('https://flowos.shieldbotlist.xyz/')">Interstellar</button>
@@ -195,7 +195,7 @@
             </div>
 
             <!-- Games Button -->
-            <div class="games-button" onclick="toggleDropdown('gamesDropdown')">
+            <div class="games-button" onmouseover="toggleDropdown('gamesDropdown')" onmouseout="toggleDropdown('gamesDropdown')">
                 <img src="https://img.icons8.com/fluent/48/000000/controller.png" alt="Games">
                 <div id="gamesDropdown" class="dropdown">
                     <button onclick="redirectTo('https://www.chess.com/')">Chess</button>
@@ -208,7 +208,7 @@
             </div>
 
             <!-- Misc Button -->
-            <div class="misc-button" onclick="toggleDropdown('miscDropdown')">
+            <div class="misc-button" onmouseover="toggleDropdown('miscDropdown')" onmouseout="toggleDropdown('miscDropdown')">
                 <img src="https://img.icons8.com/fluent/48/000000/more.png" alt="Misc">
                 <div id="miscDropdown" class="dropdown">
                     <button onclick="redirectTo('https://www.blank.com')">EVMS LEAKS(unavailable at the moment)</button>
@@ -218,7 +218,7 @@
             </div>
 
             <!-- Settings Button -->
-            <div class="settings-button" onclick="toggleDropdown('settingsDropdown')">
+            <div class="settings-button" onmouseover="toggleDropdown('settingsDropdown')" onmouseout="toggleDropdown('settingsDropdown')">
                 <img src="https://img.icons8.com/material-outlined/24/000000/settings.png" alt="Settings">
                 <div id="settingsDropdown" class="dropdown">
                     <button onclick="redirectTo('https://oldmikers.github.io/')">Reset</button>
