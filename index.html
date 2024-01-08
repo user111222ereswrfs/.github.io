@@ -108,11 +108,7 @@
             }
         }
 
-        .settings-button,
-        .proxys-button,
-        .games-button,
-        .misc-button,
-        .credits-button {
+        .button {
             background: none;
             border: none;
             outline: none;
@@ -121,18 +117,21 @@
             padding: 15px;
             border-radius: 5px;
             z-index: 4;
-            background-color: #3498db;
-            color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
 
-        .settings-button img,
-        .proxys-button img,
-        .games-button img,
-        .misc-button img,
-        .credits-button img {
+        .button img {
             width: 30px;
             height: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+        }
+
+        .proxys-button {
+            background-color: #3498db;
         }
 
         .games-button {
@@ -143,7 +142,7 @@
             background-color: #2ecc71;
         }
 
-        .button-container div:hover .dropdown {
+        .button-container .button:hover .dropdown {
             display: block;
             animation-name: fadeInDown;
         }
@@ -182,9 +181,9 @@
 
         <div class="button-container">
             <!-- Proxys Button -->
-            <div class="proxys-button" onmouseover="toggleDropdown('proxysDropdown')" onmouseout="toggleDropdown('proxysDropdown')">
+            <div class="proxys-button button">
                 <img src="https://img.icons8.com/fluent/48/000000/database.png" alt="Proxys">
-                <div id="proxysDropdown" class="dropdown">
+                <div class="dropdown">
                     <button onclick="redirectTo('https://flowos.shieldbotlist.xyz/')">Interstellar</button>
                     <button onclick="redirectTo('https://cyberproxy.shieldbotlist.xyz/')">Flow os</button>
                     <button onclick="redirectTo('https://uv.shieldbotlist.xyz/uv/service/hvtrs8%2F-wuw%2Cgmoelg.aoo%2F')">Google unblocked</button>
@@ -195,9 +194,9 @@
             </div>
 
             <!-- Games Button -->
-            <div class="games-button" onmouseover="toggleDropdown('gamesDropdown')" onmouseout="toggleDropdown('gamesDropdown')">
+            <div class="games-button button">
                 <img src="https://img.icons8.com/fluent/48/000000/controller.png" alt="Games">
-                <div id="gamesDropdown" class="dropdown">
+                <div class="dropdown">
                     <button onclick="redirectTo('https://www.chess.com/')">Chess</button>
                     <button onclick="redirectTo('https://flowos.shieldbotlist.xyz/events')">Interstellar</button>
                     <button onclick="redirectTo('https://walkin.glitch.me/')">imadejptr</button>
@@ -208,9 +207,9 @@
             </div>
 
             <!-- Misc Button -->
-            <div class="misc-button" onmouseover="toggleDropdown('miscDropdown')" onmouseout="toggleDropdown('miscDropdown')">
+            <div class="misc-button button">
                 <img src="https://img.icons8.com/fluent/48/000000/more.png" alt="Misc">
-                <div id="miscDropdown" class="dropdown">
+                <div class="dropdown">
                     <button onclick="redirectTo('https://www.blank.com')">EVMS LEAKS(unavailable at the moment)</button>
                     <button onclick="redirectTo('https://oldmikers.github.io/')">Main link</button>
                     <button onclick="redirectTo('https://youngmikers.github.io/')">Backup link</button>
@@ -218,9 +217,9 @@
             </div>
 
             <!-- Settings Button -->
-            <div class="settings-button" onmouseover="toggleDropdown('settingsDropdown')" onmouseout="toggleDropdown('settingsDropdown')">
+            <div class="settings-button button">
                 <img src="https://img.icons8.com/material-outlined/24/000000/settings.png" alt="Settings">
-                <div id="settingsDropdown" class="dropdown">
+                <div class="dropdown">
                     <button onclick="redirectTo('https://oldmikers.github.io/')">Reset</button>
                     <button onclick="redirectTo('https://uv.shieldbotlist.xyz/uv/service/hvtrs8%2F-ondoiieps%2Cgktju%60.ko-')">Proxify</button>
                     <button onclick="redirectTo('https://uv.shieldbotlist.xyz/uv/service/hvtrs8%2F-ymulgoiieps%2Cgktju%60.ko-')">Proxify 2</button>
