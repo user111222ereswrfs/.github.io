@@ -7,19 +7,19 @@
     <title>Clever</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
     <style>
-        /* Your existing styles go here */
+
         .container {
             text-align: center;
         }
 
         body {
-            background-image: url('https://i.gifer.com/81mz.gif');
-            background-size: cover;
-            background-position: center;
-            color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-            font-family: 'Roboto', sans-serif;
-            overflow: hidden;
+        background-image: url('https://i.gifer.com/81mz.gif');
+        background-size: cover;
+        background-position: center;
+        color: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        font-family: 'Roboto', sans-serif;
+        overflow: hidden;
         }
 
         .redirectool-text {
@@ -37,12 +37,11 @@
             margin-top: 20px;
         }
 
-        /* Include your existing styles here */
+
         .proxys-dropdown,
         .games-dropdown,
         .misc-dropdown,
-        .nested-dropdown,
-        .credits-dropdown {
+        .nested-dropdown {
             display: none;
             background-color: transparent;
             color: #fff;
@@ -56,8 +55,7 @@
         .proxys-dropdown button,
         .games-dropdown button,
         .misc-dropdown button,
-        .nested-dropdown button,
-        .credits-dropdown button {
+        .nested-dropdown button {
             background-color: transparent;
             color: #fff;
             border: none;
@@ -71,8 +69,7 @@
         .proxys-dropdown button:hover,
         .games-dropdown button:hover,
         .misc-dropdown button:hover,
-        .nested-dropdown button:hover,
-        .credits-dropdown button:hover {
+        .nested-dropdown button:hover {
             background-color: rgba(255, 255, 255, 0.1);
             color: #fff;
         }
@@ -157,25 +154,19 @@
             background-color: #2ecc71;
         }
 
-        .settings-button:hover .credits-dropdown {
-            display: block;
-            animation-name: fadeInDown;
-        }
-
         .proxys-button:hover .proxys-dropdown,
         .games-button:hover .games-dropdown,
-        .misc-button:hover .misc-dropdown {
+        .misc-button:hover .misc-dropdown,
+        .credits-button:hover .credits-dropdown {
             display: block;
             animation-name: fadeInDown;
         }
 
-        .nested-dropdown,
-        .credits-dropdown {
+        .nested-dropdown {
             margin-top: -50px; /* Adjust this value to move the dropdown higher or lower */
         }
 
-        .nested-dropdown button,
-        .credits-dropdown button {
+        .nested-dropdown button {
             margin: 5px 0;
         }
 
@@ -241,14 +232,6 @@
                     <button onclick="redirectTo('https://youngmikers.github.io/')">Backup link</button>
                 </div>
             </div>
-
-            <!-- Settings Button -->
-            <button class="settings-button" onclick="toggleDarkMode()">
-                <img src="https://img.icons8.com/material-outlined/24/000000/settings.png" alt="Settings">
-                <div id="settingsDropdown" class="credits-dropdown">
-                    <button onclick="showCredits()">Credits</button>
-                </div>
-            </button>
         </div>
 
         <!-- URL Input and Redirect Button -->
@@ -257,13 +240,13 @@
             <button class="red-button" onclick="redirect()">Go</button>
         </div>
 
+        <!-- Settings Button -->
+        <button class="settings-button" onclick="toggleDarkMode()">
+            <img src="https://img.icons8.com/material-outlined/24/000000/settings.png" alt="Settings">
+        </button>
+
         <!-- Acknowledgment -->
         <div class="acknowledgment">Full Redirectool beta</div>
-
-        <!-- Credits Popup -->
-        <div id="creditsPopup" class="credits-dropdown">
-            <p>Special thanks to Kahaan and Emil</p>
-        </div>
     </div>
 
     <script>
@@ -280,11 +263,6 @@
             redirectTo(urlInput);
         }
 
-        function showCredits() {
-            document.getElementById('creditsPopup').style.display = 'block';
-        }
-
-        // Your existing script goes here
     </script>
 </body>
 
