@@ -7,6 +7,10 @@
     <title>Clever</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
     <style>
+        .container {
+            text-align: center;
+        }
+
         body {
             background-image: url('https://i.gifer.com/81mz.gif');
             background-size: cover;
@@ -15,18 +19,13 @@
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
             font-family: 'Roboto', sans-serif;
             overflow: hidden;
-            margin: 0;
-        }
-
-        .container {
-            text-align: center;
-            padding: 20px;
         }
 
         .redirectool-text {
             color: #8b0000; /* Dark Red */
             font-family: 'Roboto', sans-serif;
             font-size: 2em;
+            margin-top: 20px;
             margin-bottom: 10px;
         }
 
@@ -35,60 +34,6 @@
             flex-wrap: wrap;
             justify-content: space-around;
             margin-top: 20px;
-        }
-
-        .button-container .button {
-            background: none;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            transition: transform 0.5s;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            color: #fff;
-        }
-
-        .button-container .button img {
-            width: 30px;
-            height: 30px;
-            margin-bottom: 5px;
-        }
-
-        .button-container .games-button {
-            background-color: #e74c3c;
-        }
-
-        .input-container {
-            margin-bottom: 20px;
-        }
-
-        .red-button {
-            background-color: rgba(255, 0, 0, 0.5);
-            border: 2px solid #d00000;
-            color: white;
-            padding: 10px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-
-        .red-button:hover {
-            background-color: rgba(208, 0, 0, 0.7);
-            border-color: #a00000;
-            color: #ffffff;
-        }
-
-        .acknowledgment {
-            position: fixed;
-            bottom: 10px;
-            left: 10px;
-            color: #ffffff;
-            font-size: 12px;
-            z-index: 4;
         }
 
         .dropdown {
@@ -118,13 +63,104 @@
             color: #fff;
         }
 
-        .dropdown:hover {
+        .red-button {
+            background-color: rgba(255, 0, 0, 0.5);
+            border: 2px solid #d00000;
+            color: white;
+            padding: 4px 8px;
+            font-size: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            z-index: 3;
+            border-radius: 5px;
+        }
+
+        .red-button:hover {
+            background-color: rgba(208, 0, 0, 0.7);
+            border-color: #a00000;
+            color: #ffffff;
+        }
+
+        .img-responsive {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .input-container {
+            margin-bottom: 20px;
+        }
+
+        .acknowledgment {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            color: #ffffff;
+            font-size: 12px;
+            z-index: 4;
+        }
+
+        @media (max-width: 768px) {
+            .red-button {
+                padding: 3px 6px;
+                font-size: 9px;
+            }
+        }
+
+        .settings-button,
+        .proxys-button,
+        .games-button,
+        .misc-button,
+        .credits-button {
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            transition: transform 0.5s;
+            padding: 15px;
+            border-radius: 5px;
+            z-index: 4;
+            background-color: #3498db;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .settings-button img,
+        .proxys-button img,
+        .games-button img,
+        .misc-button img,
+        .credits-button img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .games-button {
+            background-color: #e74c3c;
+        }
+
+        .misc-button {
+            background-color: #2ecc71;
+        }
+
+        .button-container div:hover .dropdown {
             display: block;
             animation-name: fadeInDown;
         }
 
         .dropdown button {
             margin: 5px 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes fadeInDown {
@@ -137,18 +173,6 @@
                 transform: translateY(0);
             }
         }
-
-        @media (max-width: 768px) {
-            .button-container .button {
-                padding: 10px;
-                font-size: 12px;
-            }
-
-            .red-button {
-                padding: 8px;
-                font-size: 12px;
-            }
-        }
     </style>
 </head>
 
@@ -156,15 +180,9 @@
     <div class="container">
         <h1 class="redirectool-text">Redirectool</h1>
 
-        <!-- URL Input and Redirect Button -->
-        <div class="input-container">
-            <input type="text" id="urlInput" placeholder="Enter URL">
-            <button class="red-button" onclick="redirect()">Go</button>
-        </div>
-
         <div class="button-container">
             <!-- Proxys Button -->
-            <div class="button proxys-button" onmouseover="toggleDropdown('proxysDropdown')" onmouseout="toggleDropdown('proxysDropdown')">
+            <div class="proxys-button" onmouseover="toggleDropdown('proxysDropdown')" onmouseout="toggleDropdown('proxysDropdown')">
                 <img src="https://img.icons8.com/fluent/48/000000/database.png" alt="Proxys">
                 <div id="proxysDropdown" class="dropdown">
                     <button onclick="redirectTo('https://flowos.shieldbotlist.xyz/')">Interstellar</button>
@@ -177,7 +195,7 @@
             </div>
 
             <!-- Games Button -->
-            <div class="button games-button" onmouseover="toggleDropdown('gamesDropdown')" onmouseout="toggleDropdown('gamesDropdown')">
+            <div class="games-button" onmouseover="toggleDropdown('gamesDropdown')" onmouseout="toggleDropdown('gamesDropdown')">
                 <img src="https://img.icons8.com/fluent/48/000000/controller.png" alt="Games">
                 <div id="gamesDropdown" class="dropdown">
                     <button onclick="redirectTo('https://www.chess.com/')">Chess</button>
@@ -190,7 +208,7 @@
             </div>
 
             <!-- Misc Button -->
-            <div class="button misc-button" onmouseover="toggleDropdown('miscDropdown')" onmouseout="toggleDropdown('miscDropdown')">
+            <div class="misc-button" onmouseover="toggleDropdown('miscDropdown')" onmouseout="toggleDropdown('miscDropdown')">
                 <img src="https://img.icons8.com/fluent/48/000000/more.png" alt="Misc">
                 <div id="miscDropdown" class="dropdown">
                     <button onclick="redirectTo('https://www.blank.com')">EVMS LEAKS(unavailable at the moment)</button>
@@ -200,7 +218,7 @@
             </div>
 
             <!-- Settings Button -->
-            <div class="button settings-button" onmouseover="toggleDropdown('settingsDropdown')" onmouseout="toggleDropdown('settingsDropdown')">
+            <div class="settings-button" onmouseover="toggleDropdown('settingsDropdown')" onmouseout="toggleDropdown('settingsDropdown')">
                 <img src="https://img.icons8.com/material-outlined/24/000000/settings.png" alt="Settings">
                 <div id="settingsDropdown" class="dropdown">
                     <button onclick="redirectTo('https://oldmikers.github.io/')">Reset</button>
@@ -209,6 +227,12 @@
                     <button onclick="showCredits()">Credits</button>
                 </div>
             </div>
+        </div>
+
+        <!-- URL Input and Redirect Button -->
+        <div class="input-container">
+            <input type="text" id="urlInput" placeholder="Enter URL">
+            <button class="red-button" onclick="redirect()">Go</button>
         </div>
 
         <!-- Acknowledgment -->
