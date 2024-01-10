@@ -1,303 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clever</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        .container {
-            text-align: center;
-        }
+      .container {
+        text-align: center;
+      }
 
-        body {
-            background-image: url('https://i.gifer.com/81mz.gif');
-            background-size: cover;
-            background-position: center;
-            color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-            font-family: 'Roboto', sans-serif;
-            overflow: hidden;
-        }
+      body {
+        background: black;
+        color: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        font-family: "Roboto", sans-serif;
+        overflow: hidden;
+      }
 
-        .redirectool-text {
-            color: #8b0000;
-            font-family: 'Roboto', sans-serif;
-            font-size: 2em;
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
+      .redirectool-text {
+        color: #8b0000;
+        font-family: "Roboto", sans-serif;
+        font-size: 2em;
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
 
-        .button-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            margin-top: 20px;
-        }
+      .button-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-top: 20px;
+      }
 
-        .dropdown {
-            display: none;
-            background-color: transparent;
-            color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            z-index: 2;
-            position: absolute;
-            animation-duration: 0.5s;
-        }
+      .dropdown {
+        display: none;
+        background-color: transparent;
+        color: #fff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        z-index: 2;
+        position: absolute;
+        animation-duration: 0.5s;
+      }
 
-        .dropdown button {
-            background-color: transparent;
-            color: #fff;
-            border: none;
-            padding: 10px;
-            margin: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            border-radius: 5px;
-        }
+      .dropdown button {
+        background-color: transparent;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        margin: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        border-radius: 5px;
+      }
 
-        .dropdown button:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: #fff;
-        }
+      .dropdown button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+      }
 
+      .red-button {
+        background-color: rgba(255, 0, 0, 0.5);
+        border: 2px solid #d00000;
+        color: white;
+        padding: 4px 8px;
+        font-size: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease,
+          border-color 0.3s ease;
+        position: relative;
+        z-index: 3;
+        border-radius: 5px;
+      }
+
+      .red-button:hover {
+        background-color: rgba(208, 0, 0, 0.7);
+        border-color: #a00000;
+        color: #ffffff;
+      }
+
+      .img-responsive {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .input-container {
+        margin-bottom: 20px;
+      }
+
+      .acknowledgment {
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+        color: #ffffff;
+        font-size: 12px;
+        z-index: 4;
+      }
+
+      @media (max-width: 768px) {
         .red-button {
-            background-color: rgba(255, 0, 0, 0.5);
-            border: 2px solid #d00000;
-            color: white;
-            padding: 4px 8px;
-            font-size: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-            position: relative;
-            z-index: 3;
-            border-radius: 5px;
-        }
-
-        .red-button:hover {
-            background-color: rgba(208, 0, 0, 0.7);
-            border-color: #a00000;
-            color: #ffffff;
-        }
-
-        .img-responsive {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-
-        .input-container {
-            margin-bottom: 20px;
-        }
-
-        .acknowledgment {
-            position: fixed;
-            bottom: 10px;
-            left: 10px;
-            color: #ffffff;
-            font-size: 12px;
-            z-index: 4;
-        }
-
-        @media (max-width: 768px) {
-            .red-button {
-                padding: 3px 6px;
-                font-size: 9px;
-            }
-        }
-
-        .button {
-            background: none;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            transition: transform 0.5s;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            position: relative;
+          padding: 3px 6px;
+          font-size: 9px;
         }
 
         .button img {
-            width: 30px;
-            height: 30px;
-            transition: transform 0.3s ease;
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      .button {
+        background: none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        transition: transform 0.5s;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        position: relative;
+      }
+
+      .button img {
+        width: 30px;
+        height: 30px;
+        transition: transform 0.3s ease;
+      }
+
+      .button:hover {
+        transform: scale(1.1);
+      }
+
+      .proxys-button {
+        background-color: #3498db;
+        z-index: 4;
+      }
+
+      .games-button {
+        background-color: #e74c3c;
+        z-index: 4;
+      }
+
+      .misc-button {
+        background-color: #2ecc71;
+        z-index: 4;
+      }
+
+      .settings-button {
+        background-color: #3498db;
+        z-index: 4;
+      }
+
+      .button-container .button:hover .dropdown {
+        display: block;
+        animation-name: fadeInDown;
+      }
+
+      .dropdown button {
+        margin: 5px 0;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
         }
 
-        .button:hover {
-            transform: scale(1.1);
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
         }
 
-        .proxys-button {
-            background-color: #3498db;
-            z-index: 4;
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-
-        .games-button {
-            background-color: #e74c3c;
-            z-index: 4;
-        }
-
-        .misc-button {
-            background-color: #2ecc71;
-            z-index: 4;
-        }
-
-        .settings-button {
-            background-color: #3498db;
-            z-index: 4;
-        }
-
-        .button-container .button:hover .dropdown {
-            display: block;
-            animation-name: fadeInDown;
-        }
-
-        .dropdown button {
-            margin: 5px 0;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <h1 class="redirectool-text">Redirectool</h1>
+      <h1 class="redirectool-text">Redirectool</h1>
 
-        <div class="button-container">
-            <!-- Proxys Button -->
-            <div class="proxys-button button">
-                <img src="https://img.icons8.com/fluent/48/000000/database.png" alt="Proxys">
-                <div class="dropdown">
-                    <button onclick="redirectTo('https://flowos.shieldbotlist.xyz/')">Interstellar</button>
-                    <button onclick="redirectTo('https://cyberproxy.shieldbotlist.xyz/')">Flow os</button>
-                    <button onclick="redirectTo('https://uv.shieldbotlist.xyz/uv/service/hvtrs8%2F-wuw%2Cgmoelg.aoo%2F')">Google</button>
-                    <button onclick="redirectTo('https://uv.shieldbotlist.xyz/uv/service/hvtrs8%2F-dwcidwcigm.aoo%2F')">DuckDuckGo</button>
-                    <button onclick="redirectTo('https://uv.shieldbotlist.xyz/uv/service/hvtrs8%2F-wuw%2Cbkne.aoo%2F')">Bing</button>
-                    <button onclick="redirectTo('https://uv.shieldbotlist.xyz/uv/service/hvtrs8%2F-sgapcj.%60rcvg.aoo%2F')">Brave</button>
-                    <button onclick="redirectTo('https://shadow.microtract.xyz/')">Shadow</button>
-                </div>
-            </div>
-
-            <!-- Games Button -->
-            <div class="games-button button">
-                <img src="https://img.icons8.com/fluent/48/000000/controller.png" alt="Games">
-                <div class="dropdown">
-                    <button onclick="redirectTo('https://www.chess.com/')">Chess</button>
-                    <button onclick="redirectTo('https://flowos.shieldbotlist.xyz/events')">Interstellar</button>
-                    <button onclick="redirectTo('https://walkin.glitch.me/')">imadejptr</button>
-                    <button onclick="redirectTo('https://biology-textbook-education.vercel.app/projects.html')">Selenite</button>
-                    <button onclick="redirectTo('https://sites.google.com/site/classroom6x/Home?authuser=0')">classroom 6x</button>
-                    <button onclick="redirectTo('https://youngmikers.github.io/mygames/')">My games</button>
-                </div>
-            </div>
-
-            <!-- Misc Button -->
-            <div class="misc-button button">
-                <img src="https://img.icons8.com/fluent/48/000000/more.png" alt="Misc">
-                <div class="dropdown">
-                    <button onclick="redirectTo('https://www.google.com')">Google</button>
-                    <button onclick="redirectTo('https://www.blank.com')">EVMS LEAKS(unavailable at the moment)</button>
-                </div>
-            </div>
-
-            <!-- Settings Button -->
-            <div class="settings-button button">
-                <img src="https://img.icons8.com/material-outlined/24/000000/settings.png" alt="Settings">
-                <div class="dropdown">
-                    <button onclick="redirectTo('https://oldmikers.github.io/')">Reset</button>
-                    <button onclick="proxify()">Proxify</button>
-                    <button onclick="showCredits()">Credits</button>
-                </div>
-            </div>
+      <div class="button-container">
+        <!-- Proxys Button -->
+        <div class="proxys-button button">
+          <img
+            src="https://img.icons8.com/fluent/48/000000/database.png"
+            alt="Proxys"
+          />
+          <div class="dropdown">
+            <button onclick="redirectTo('https://youngmikers.github.io/Interstellar/')">
+              Interstellar
+            </button>
+            <button
+              onclick="redirectTo('https://cyberproxy.shieldbotlist.xyz/')"
+            >
+              Flow os
+            </button>
+            <button
+              onclick="redirectTo('https://youngmikers.github.io/flowos/
+')"
+            >
+              Google
+            </button>
+            <button
+              onclick="redirectTo('https://uv.shieldbotlist.xyz/uv/service/hvtrs8%2F-dwcidwcigm.aoo%2F')"
+            >
+              DuckDuckGo
+            </button>
+            <button
+              onclick="redirectTo('https://uv.shieldbotlist.xyz/uv/service/hvtrs8%2F-wuw%2Cbkne.aoo%2F')"
+            >
+              Bing
+            </button>
+            <button
+              onclick="redirectTo('https://uv.shieldbotlist.xyz/uv/service/hvtrs8%2F-sgapcj.%60rcvg.aoo%2F')"
+            >
+              Brave
+            </button>
+            <button onclick="redirectTo('https://shadow.microtract.xyz/')">
+              Shadow
+              <button
+                onclick="redirectTo('https://xn--3et9cv37l.xn--2rq78u.warm4u.co.uk/')"
+              >
+                Incognito
+              </button>
+            </button>
+          </div>
         </div>
 
-        <!-- URL Input and Redirect Button -->
-        <div class="input-container">
-            <input type="text" id="urlInput" placeholder="Enter URL">
-            <button class="red-button" onclick="redirect()">Go</button>
+        <!-- Games Button -->
+        <div class="games-button button">
+          <img
+            src="https://img.icons8.com/fluent/48/000000/controller.png"
+            alt="Games"
+          />
+          <div class="dropdown">
+            <button onclick="redirectTo('https://www.chess.com/')">
+              Chess
+            </button>
+            <button
+              onclick="redirectTo('https://flowos.shieldbotlist.xyz/events')"
+            >
+              Interstellar
+            </button>
+            <button onclick="redirectTo('https://walkin.glitch.me/')">
+              imadejptr
+            </button>
+            <button
+              onclick="redirectTo('https://biology-textbook-education.vercel.app/projects.html')"
+            >
+              Selenite
+            </button>
+            <button
+              onclick="redirectTo('https://sites.google.com/site/classroom6x/Home?authuser=0')"
+            >
+              classroom 6x
+            </button>
+            <button
+              onclick="redirectTo('https://youngmikers.github.io/mygames/')"
+            >
+              My games
+            </button>
+          </div>
         </div>
 
-        <!-- Acknowledgment -->
-        <div class="acknowledgment">Full Redirectool beta</div>
-
-        <!-- Credits Popup -->
-        <div id="creditsPopup" class="dropdown">
-            <p>Special thanks to Kahaan and Emil</p>
+        <!-- Misc Button -->
+        <div class="misc-button button">
+          <img
+            src="https://img.icons8.com/fluent/48/000000/more.png"
+            alt="Misc"
+          />
+          <div class="dropdown">
+            <button onclick="redirectTo('https://www.google.com')">
+              Google
+            </button>
+            <button onclick="redirectTo('https://www.blank.com')">
+              EVMS LEAKS(unavailable at the moment)
+            </button>
+          </div>
         </div>
+
+        <!-- Settings Button -->
+        <div class="settings-button button">
+          <img
+            src="https://img.icons8.com/material-outlined/24/000000/settings.png"
+            alt="Settings"
+          />
+          <div class="dropdown">
+            <button onclick="redirectTo('https://oldmikers.github.io/')">
+              Reset
+            </button>
+            <button onclick="proxify()">Proxify</button>
+            <button onclick="showCredits()">Credits</button>
+            <button onclick="redirectTo('https://youngmikers.github.io/')">
+              Test
+            </button>
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- URL Input and Redirect Button -->
+      <div class="input-container">
+        <input type="text" id="urlInput" placeholder="Enter URL" />
+        <button class="red-button" onclick="redirect()">Go</button>
+      </div>
+
+      <!-- Acknowledgment -->
+      <div class="acknowledgment">Full Redirectool beta</div>
+
+      <!-- Credits Popup -->
+      <div id="creditsPopup" class="dropdown">
+        <p>Special thanks to Kahaan and Emil</p>
+      </div>
     </div>
 
     <script>
-        function redirectTo(url) {
-            if (url.toLowerCase().startsWith('http://')) {
-                url = 'https://' + url.substring(7);
-            }
-            window.location.href = url;
+      function redirectTo(url) {
+        if (url.toLowerCase().startsWith("http://")) {
+          url = "https://" + url.substring(7);
         }
+        window.location.href = url;
+      }
 
-        function redirect() {
-            var urlInput = document.getElementById('urlInput').value;
-            redirectTo(urlInput);
-        }
+      function redirect() {
+        var urlInput = document.getElementById("urlInput").value;
+        redirectTo(urlInput);
+      }
 
-        function toggleDropdown(id) {
-            var dropdown = document.getElementById(id);
-            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-        }
+      function toggleDropdown(id) {
+        var dropdown = document.getElementById(id);
+        dropdown.style.display =
+          dropdown.style.display === "block" ? "none" : "block";
+      }
 
-        function showCredits() {
-            document.getElementById('creditsPopup').style.display = 'block';
-            setTimeout(function () {
-                document.getElementById('creditsPopup').style.display = 'none';
-            }, 3000);
-        }
+      function showCredits() {
+        document.getElementById("creditsPopup").style.display = "block";
+        setTimeout(function () {
+          document.getElementById("creditsPopup").style.display = "none";
+        }, 3000);
+      }
 
-        function proxify() {
-            var warningMessage = "WARNING: The reset button will not work. The only way to go back is by pressing the back arrow.";
-            var countdown = 0;
+      function proxify() {
+        var warningMessage =
+          "WARNING: The reset button will not work. The only way to go back is by pressing the back arrow.";
+        var countdown = 0;
 
-            var warningPopup = document.createElement('div');
-            warningPopup.innerHTML = warningMessage + "<br>Redirecting in " + countdown + " seconds...";
-            warningPopup.className = 'dropdown';
-            warningPopup.style.color = 'red'; // Set the color to red
-            document.body.appendChild(warningPopup);
+        var warningPopup = document.createElement("div");
+        warningPopup.innerHTML =
+          warningMessage + "<br>Redirecting in " + countdown + " seconds...";
+        warningPopup.className = "dropdown";
+        warningPopup.style.color = "red"; // Set the color to red
+        document.body.appendChild(warningPopup);
 
-            var countdownInterval = setInterval(function () {
-                countdown--;
+        var countdownInterval = setInterval(function () {
+          countdown--;
 
-                if (countdown < 0) {
-                    clearInterval(countdownInterval);
-                    warningPopup.style.display = 'none';
-                    redirectTo('https://uv.shieldbotlist.xyz/uv/service/hvtrs8%2F-qwintgd%2Fqwiltgsqeltkan-creuoelt%2Cgnivcj.oe-');
-                } else {
-                    warningPopup.innerHTML = warningMessage + "<br>Redirecting in " + countdown + " seconds...";
-                }
-            }, 1000);
-        }
+          if (countdown < 0) {
+            clearInterval(countdownInterval);
+            warningPopup.style.display = "none";
+            redirectTo(
+              "https://uv.shieldbotlist.xyz/uv/service/hvtrs8%2F-qwintgd%2Fqwiltgsqeltkan-creuoelt%2Cgnivcj.oe-"
+            );
+          } else {
+            warningPopup.innerHTML =
+              warningMessage +
+              "<br>Redirecting in " +
+              countdown +
+              " seconds...";
+          }
+        }, 1000);
+      }
     </script>
-</body>
-
+  </body>
 </html>
